@@ -124,5 +124,22 @@ UISlider* volumeViewSlider = nil;
 
 }
 
+- (void)getVolumeLevel:(CDVInvokedUrlCommand *)command {
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDouble:volumeViewSlider.value];
+    
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void)getVolumeUpdate:(CDVInvokedUrlCommand *)command {
+    self.callbackId = command.callbackId;
+    [volumeViewSlider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+}
+
+-(void)sliderChanged:(id)sender {
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDouble:volumeViewSlider.value];
+    [result setKeepCallback:@YES];
+    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+}
+
 
 @end

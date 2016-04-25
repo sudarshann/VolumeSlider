@@ -45,5 +45,19 @@ module.exports = {
      */
     resetVolumeSlider : function() {
         exec(null, null, "VolumeSlider","resetVolumeSlider", []);
+    },
+    
+    
+    getVolumeLevel : function(success, fail) {
+        exec(function(level) {
+             success(level);
+             }, fail, "VolumeSlider","getVolumeLevel", []);
+    },
+    
+    registerVolumeUpdate: function(update) {
+        exec(function(volume) {
+             update(volume);
+         },
+         null, "VolumeSlider", "getVolumeUpdate", []);
     }
 };
