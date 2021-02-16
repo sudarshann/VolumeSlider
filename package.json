@@ -1,0 +1,15 @@
+{
+  "name": "volumeslider",
+  "version": "1.0.0",
+  "description": "VolumeSlider",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudarshann/VolumeSlider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudarshann/VolumeSlider/issues"
+  },
+  "homepage": "https://github.com/sudarshann/VolumeSlider#readme"
+}
